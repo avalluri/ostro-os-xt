@@ -24,13 +24,15 @@ export LC_ALL=en_US.UTF-8
 git config --global user.email "$GIT_EMAIL"
 git config --global user.name "$GIT_USER"
 
+BUILD_CACHE_DIR="$BUILD_ROOT/bb-cache"
+
 cd $WORKSPACE
 # get git commit ID of the project for using in buildhistory tagging
 CI_GIT_COMMIT=$(git rev-parse HEAD)
 
 # FIXME: undbound variables used without checking:
 set +u
-source ostro-init-build-env
+source ostro-init-build-env $BUILD_ROOT
 set -u
 
 if [ -v JOB_NAME ]; then
