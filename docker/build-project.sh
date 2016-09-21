@@ -21,6 +21,9 @@ env | sort
 # when migrating to Python3.
 export LC_ALL=en_US.UTF-8
 
+git config --global user.email "$GIT_EMAIL"
+git config --global user.name "$GIT_USER"
+
 cd $WORKSPACE
 # get git commit ID of the project for using in buildhistory tagging
 CI_GIT_COMMIT=$(git rev-parse HEAD)
